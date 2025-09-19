@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniContentDownloader</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <img src="icons/icon32.png" alt="UniContentDownloader" class="logo">
+            <h1>UniContentDownloader</h1>
+            <div class="version">v1.0.0</div>
+        </header>
+
+        <main class="popup-main">
+            <section class="status-section">
+                <div class="status-item">
+                    <span class="status-label">Статус:</span>
+                    <span id="connection-status" class="status-value">Проверка...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Очередь:</span>
+                    <span id="queue-status" class="status-value">0 элементов</span>
+                </div>
+            </section>
+
+            <section class="controls-section">
+                <button id="toggle-downloader" class="btn btn-primary">
+                    <span id="toggle-text">Активировать</span>
+                </button>
+                
+                <button id="scan-page" class="btn btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                    Сканировать страницу
+                </button>
+                
+                <button id="clear-queue" class="btn btn-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                        <line x1="10" y1="11" x2="10" y2="17"></line>
+                        <line x1="14" y1="11" x2="14" y2="17"></line>
+                    </svg>
+                    Очистить очередь
+                </button>
+            </section>
+
+            <section class="queue-section">
+                <h3>Очередь загрузки</h3>
+                <div id="queue-list" class="queue-list">
+                    <div class="queue-empty">Очередь пуста</div>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h3>Настройки</h3>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="auto-scan" checked>
+                        Автоматическое сканирование
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="show-notifications" checked>
+                        Показывать уведомления
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>
+                        Качество видео:
+                        <select id="video-quality">
+                            <option value="best">Лучшее</option>
+                            <option value="720p">720p</option>
+                            <option value="480p">480p</option>
+                            <option value="360p">360p</option>
+                        </select>
+                    </label>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <div class="info-item">
+                    <strong>Текущая страница:</strong>
+                    <span id="current-page">Не на Fansly</span>
+                </div>
+                <div class="info-item">
+                    <strong>Найдено контента:</strong>
+                    <span id="content-count">0</span>
+                </div>
+            </section>
+        </main>
+
+        <footer class="popup-footer">
+            <div class="links">
+                <a href="#" id="open-settings">Настройки</a>
+                <a href="#" id="open-help">Справка</a>
+                <a href="#" id="open-logs">Логи</a>
+            </div>
+            <div class="copyright">
+                © 2024 UniContentDownloader
+            </div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "com.unicontentdownloader.fansly",
+  "description": "UniContentDownloader Native Messaging Host for Fansly integration",
+  "path": "PLACEHOLDER_PATH",
+  "type": "stdio",
+  "allowed_extensions": [
+    "unicontentdownloader@fansly.extension"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "UniContentDownloader - Fansly Integration",
+  "version": "1.0.0",
+  "description": "Автоматическое скачивание контента с Fansly через UniContentDownloader",
+  "description_en": "Automatic content downloading from Fansly via UniContentDownloader",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "nativeMessaging"
+  ],
+  
+  "host_permissions": [
+    "https://fansly.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://fansly.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "UniContentDownloader",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://fansly.com/*"]
+    }
+  ]
+}
