@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniContentDownloader</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <img src="icons/icon32.png" alt="UniContentDownloader" class="logo">
+      <h1>UniContentDownloader</h1>
+    </header>
+
+    <div class="popup-content">
+      <!-- Status Section -->
+      <div class="status-section">
+        <div class="status-item">
+          <span class="status-label">Detected Items:</span>
+          <span class="status-value" id="detected-count">0</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Queue:</span>
+          <span class="status-value" id="queue-count">0</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Status:</span>
+          <span class="status-value" id="download-status">Ready</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="actions-section">
+        <button id="scan-btn" class="action-btn primary">
+          <span class="btn-icon">🔍</span>
+          Scan Page
+        </button>
+        <button id="download-btn" class="action-btn success" disabled>
+          <span class="btn-icon">⬇</span>
+          Download All
+        </button>
+      </div>
+
+      <!-- Configuration Section -->
+      <div class="config-section">
+        <h3>Settings</h3>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="auto-download">
+          <span class="checkmark"></span>
+          Auto-download detected content
+        </label>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="separate-messages">
+          <span class="checkmark"></span>
+          Separate messages into folders
+        </label>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="separate-previews">
+          <span class="checkmark"></span>
+          Download preview images
+        </label>
+        
+        <label class="checkbox-label">
+          <input type="checkbox" id="show-notifications">
+          <span class="checkmark"></span>
+          Show notifications
+        </label>
+
+        <div class="input-group">
+          <label for="backend-url">Backend URL:</label>
+          <input type="text" id="backend-url" placeholder="http://localhost:8080">
+        </div>
+      </div>
+
+      <!-- Download History -->
+      <div class="history-section">
+        <div class="section-header">
+          <h3>Recent Downloads</h3>
+          <button id="clear-history-btn" class="clear-btn">Clear</button>
+        </div>
+        <div id="download-history" class="history-list">
+          <!-- History items will be populated here -->
+        </div>
+      </div>
+
+      <!-- Queue Section -->
+      <div class="queue-section">
+        <h3>Download Queue</h3>
+        <div id="download-queue" class="queue-list">
+          <!-- Queue items will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="popup-footer">
+      <div class="footer-links">
+        <a href="#" id="help-link">Help</a>
+        <a href="#" id="settings-link">Advanced Settings</a>
+      </div>
+      <div class="version">v1.0.0</div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

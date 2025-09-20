@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "UniContentDownloader for Fansly",
+  "version": "1.0.0",
+  "description": "Automatic content downloading from Fansly pages",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "nativeMessaging"
+  ],
+  
+  "host_permissions": [
+    "https://fansly.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://fansly.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "UniContentDownloader",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://fansly.com/*"]
+    }
+  ]
+}
